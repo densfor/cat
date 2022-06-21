@@ -1,0 +1,377 @@
+p {
+    margin: 0 0 10px;   /*  убираем отступ сверху, снизу оставляем, чтобы отделять абзацы друг от друга */
+  }
+
+h2  {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
+
+    margin-top: 70px;
+      
+}
+
+h3  {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
+    padding: 0 20px;
+
+    margin-top: 0;
+
+    position: absolute;
+    background-color: #fff;
+
+}
+
+
+blockquote {
+    font-family: 'Montserrat', sans-serif;
+    font-size:30px;
+    line-height:50px;
+    font-style:italic;
+    position: relative;
+    padding:50px 90px;
+ }
+
+h2::before {
+    content: 'Hello, ';
+}
+
+h2::after {
+    content: " lox";
+}
+
+blockquote::before {
+    content: open-quote;
+    top: 0;
+    left: 0;
+
+}
+
+blockquote::after {
+    content: close-quote;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+blockquote::before,
+blockquote::after  {
+    position: absolute;
+
+    background-color: rgb(175, 109, 109);
+
+    display: block;
+    width: 60px;
+    
+    height: 60px;
+    border-radius: 100%;
+
+    text-align: center;
+    line-height: 80px;   /* Можно поднимать опускать кавычки */
+    font-size: 60px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+ }
+ .item {
+    flex-basis:30%;
+ }
+ .text {
+    
+    line-height:30px;
+ }
+
+ .text:before {
+    content:''; /*  ! Если добавить url в контент, то не смогли бы управлять изображением */
+    background-color:rgb(235, 104, 143);
+    background-image: url("https://cdn-icons-png.flaticon.com/512/616/616430.png");
+    background-size: 50px 50px;
+    background-repeat:no-repeat;
+    background-position:center;
+    
+    width:80px;
+    height:80px;
+    display: block;
+    text-align:center;
+    border-radius:100%;
+    font-size:30px;
+    line-height:80px;
+    margin-bottom:20px;
+ }
+
+ .text:hover::before {   /* псевдокласс - потом псевдоэлемент, такая запись должна быть */
+    
+    background-color: yellow;
+ }
+
+
+
+.box2 {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 70px;
+    position: relative;
+}
+
+ .box2::before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 4px;
+    position: absolute;    /* здесь position: absolute; и в h3 добавили */
+    top: 30px;
+   
+
+    background-color: #000;
+
+ }
+
+
+/* ol { 
+    font-family: 'Montserrat', sans-serif;
+     counter-reset: list;  /* задаем имя счетчика
+
+}
+
+li {
+    margin-bottom: 8px;
+    counter-increment: list;  /* увеличивает значение счетчика 
+    list-style-type: none;   /* убираем html 
+}
+
+li::before {
+    content: counter(list) ". ";  /*content: counter(list);   выводит значение счетчика 
+    background-color: #ccc;
+    margin-right: 15px;
+}
+*/
+
+
+/* =============================================================== */
+
+.texti {
+   margin-bottom: 150px;
+}
+
+
+/* .text-task::before {
+    content:"Начало: ";
+    color: red;
+}
+
+.text-task::after {
+    content: " :конец!";
+    color:rgb(67, 230, 26);
+} */
+
+
+.text-task::first-letter {
+    color: rgb(67, 230, 26);
+}
+
+.text-task::first-line {
+    background-color: rgb(219, 145, 145);
+}
+
+.text-task::selection {
+    color: #fff;
+    background-color: rgb(42, 82, 23);
+}
+
+.input-place {
+    margin-top: 50px;
+}
+
+.input-place::placeholder {
+    color: rgb(76, 233, 44);
+}
+
+.input-place:focus::placeholder{
+    color: #fff;
+    background-color: rgb(38, 105, 17);
+}
+
+.text-task-wrap {
+    margin-bottom: 15px;
+    counter-reset: list;   /*  list 8 Начинаем отсчет с 8 элемента */
+}
+
+.text-task-wrap p::before {
+    counter-increment: list;
+    content: "Абзац № " counter(list);
+    background-color: #ccc;
+    padding: 0 20px;
+}
+
+.reset {
+    counter-reset: list;
+    border: rgb(184, 12, 12) 1px solid;
+}
+
+
+/* .list li:first-child {
+ background-color:rgb(150, 47, 163);
+ list-style: none;
+}
+
+.list li:last-child {
+    color: aquamarine;
+}
+
+.list li:nth-child(3) {
+    background-color: red;
+}
+
+.list li:nth-child(odd) {
+    color: rgb(236, 143, 20);
+}
+
+.list li:nth-child(even) {
+    color: rgb(9, 12, 187);
+}
+
+.list li:nth-child(3n) {
+    background-color: rgb(23, 255, 93);
+}
+
+.list li:nth-last-of-type(2) {
+    background-color: rgb(230, 17, 219);
+} */
+
+
+
+
+.list li:only-child {
+    background-color: red;
+}
+
+/* input:checked + label {
+    color: red;
+}
+
+input:disabled {
+    
+    box-shadow: 0 0 3px red;
+}
+
+input {
+    
+    box-shadow: 0 0 3px rgb(19, 224, 53);
+} */
+
+.list li:empty {
+    background-color: aqua;
+    box-shadow: 0 0 3px rgb(18, 20, 18);
+}
+
+li:not(:nth-child(3)) {
+    background-color: red;
+}
+
+div:target {
+    background-color: gold;
+}
+
+h2:target {
+    background-color: gold;
+}
+
+
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 100px;
+
+    background-color: #ccc;
+    
+    align-items: center;
+    
+    margin: 0 10px 50px;
+}
+
+.wrap__item {
+    width: 33.33333%;
+    height: auto;
+    margin: 10px;
+    background-color: red;
+    text-align: center;
+}
+
+.slider-container {
+    height: 800px;
+    width: 700px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    margin: 0 auto;
+    
+    
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    bottom: 0;
+
+}
+.menu label { 
+    cursor: pointer;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50px;
+      margin: 0 0.2em 1em;
+
+}
+
+
+
+.slide {
+    
+    width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      z-index: 10;
+      padding: 8em 1em 0;
+      background-size: cover;
+      background-position: 50% 50%;
+      transition: left 0s 0.75s;
+
+}
+
+[id^="slide"]:checked + .slide {
+    left: 0;
+    z-index: 100;
+    transition: left 0.65s ease-out;
+    }
+
+.slide-1 {
+    background-image: url(../img/cat_1.jpg);
+}
+
+.slide-2 {
+    background-image: url(../img/cat_2.jpg);
+}
+
+.menu label:focus,
+.menu label:hover {
+    background-color: red;
+}
+
